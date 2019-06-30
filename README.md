@@ -53,8 +53,8 @@ To run without Docker, change into the `app/` directory and run the following:
 
 ```
 cd app
-pip3 install requirements.txt
-./run.sh
+pip install -r requirements.txt
+./run.sh python ./manage.py runserver
 ```
 
 To run with gunicorn, set the `STAGE` environment variable to `production`:

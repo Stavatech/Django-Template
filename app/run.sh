@@ -17,7 +17,7 @@ tail -n 0 -f $LOG_DIR/*.log &
 if [ "$STAGE" = "production" ] ; then
     echo "Running production server..."
     exec gunicorn config.wsgi -b 0.0.0.0:8000 \
-        --name bgf-svc
+        --name django-svc
         --workers 3 \
         --log-level=debug \
         --log-file=/srv/logs/gunicorn.log \
