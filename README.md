@@ -49,6 +49,8 @@ STAGE=production ./docker/run.sh
 
 ### Running without Docker
 
+*Note: you probably want to run the below commands within a [Python virtual environment](https://github.com/pyenv/pyenv)*
+
 To run without Docker, change into the `app/` directory and run the following:
 
 ```
@@ -56,6 +58,7 @@ cd app
 pip install -r requirements.txt
 ./run.sh python ./manage.py runserver
 ```
+
 
 To run with gunicorn, set the `STAGE` environment variable to `production`:
 
