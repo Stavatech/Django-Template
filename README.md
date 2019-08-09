@@ -2,7 +2,7 @@
 
 ## Overview
 
-A template project for running a Django project on ECS. 
+A Pyclops template for running a Django project on ECS. 
 
 **Features:**
 

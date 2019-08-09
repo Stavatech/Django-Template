@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework_simplejwt import views as jwt_views
 
+import os
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +30,5 @@ urlpatterns = [
     path('health/', include('health.urls')),
     path('auth/tokens/access', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/tokens/refresh', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    path('', get_swagger_view(title='BGF API')),
+    path('', get_swagger_view(title='API Docs (%s)' % settings.STAGE)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
