@@ -27,7 +27,7 @@ Before the Docker container can be run, the Docker image must be built. From the
 ./docker/build.sh
 ```
 
-For a production build, set the `STAGE` environment variable to `production`:
+For a production-like build, set the `STAGE` environment variable to `production`:
 
 ```
 STAGE=production ./docker/build.sh
@@ -41,7 +41,7 @@ Once the image has been built, a Docker container can be launched with the follo
 ./docker/run.sh
 ```
 
-For a production run, once again, set the `STAGE` environment variable to `production`:
+For a production-like run, once again, set the `STAGE` environment variable to `production`:
 
 ```
 STAGE=production ./docker/run.sh
