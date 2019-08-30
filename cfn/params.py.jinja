@@ -8,21 +8,25 @@ github_user = "{{ github_user }}"
 github_repo = "{{ github_repo }}"
 git_branch = "{{ git_branch }}"
 
-stages = {
-    {% for stage_name, stage_config in stages.items() %}
-        "{{ stage_name }}": {
-            "domain": "{{ stage_config['domain'] }}"
-            "hosted_zone_id": "{{ stage_config['hosted_zone_id'] }}"
-            "container_count": {{ stage_config['container_count'] }}
-            "container_port": {{ stage_config['container_port'] }}
-            "container_cpu": {{ stage_config['container_cpu'] }}
-            "container_memory": {{ stage_config['container_memory'] }}
-            "container_count": {{ stage_config['container_count'] }}
-        }
-    {% endfor %}
-}
-
 ecr_repo = "{{ ecr_repo }}"
 
 load_balancer_path = "{{ load_balancer_path }}"
-load_balancer_priority = "{{ load_balancer_priority }}"
+load_balancer_priority = {{ load_balancer_priority }}
+
+"""
+The 'stages' parameter is a special parameter where stage-specific values can be
+specified. These stage-specific values are accessed in the service.config.json.jinja
+templates using 'stage_<param_name>' e.g. stage_domain, stage_hosted_zone_id, etc.
+"""
+stages = {
+    {% for stage_name, stage_config in stages.items() %}
+        "{{ stage_name }}": {
+            "domain": "{{ stage_config['domain'] }}",
+            "hosted_zone_id": "{{ stage_config['hosted_zone_id'] }}",
+            "container_count": {{ stage_config['container_count'] }},
+            "container_port": {{ stage_config['container_port'] }},
+            "container_cpu": {{ stage_config['container_cpu'] }},
+            "container_memory": {{ stage_config['container_memory'] }}
+        }
+    {% endfor %}
+}
