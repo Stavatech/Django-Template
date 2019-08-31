@@ -3,15 +3,15 @@ import os
 
 project_name = "{{ project_name }}"
 
-github_token = os.getenv('GITHUB_TOKEN')
-github_owner = "{{ owner }}"
 github_repo = "{{ project_name }}"
-git_branch = "{{ branch }}"
+github_owner = "{{ git_owner }}"
+github_token = os.getenv('GITHUB_TOKEN')
+git_branch = "{{ git_branch }}"
 
 ecr_repo = "{{ ecr_repo }}"
 
-load_balancer_path = "{{ load_balancer_path }}"
-load_balancer_priority = {{ load_balancer_priority }}
+load_balancer_path = "/"
+load_balancer_priority = 1
 
 image_tag = os.getenv('IMAGE_TAG', "latest")
 
