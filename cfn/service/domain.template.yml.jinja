@@ -1,5 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
+{% if stage_domain is not none %}  
 Resources:
   # Set up domain and certificate
   Certificate:
@@ -45,3 +46,4 @@ Resources:
         AliasTarget:
           HostedZoneId: Z35SXDOTRQ7X7K
           DNSName: !GetAtt 'PublicLoadBalancer.DNSName'
+{% endif %}

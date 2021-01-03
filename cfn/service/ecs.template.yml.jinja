@@ -107,7 +107,7 @@ Resources:
         - Name: !Sub '${ServiceName}-${Stage}'
           Cpu: !Ref 'ContainerCpu'
           Memory: !Ref 'ContainerMemory'
-          Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${Repository}:${ImageTag}
+          Image: !Sub ${Repository}:${ImageTag}
           PortMappings:
             - ContainerPort: !Ref 'ContainerPort'
           Environment:

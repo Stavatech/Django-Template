@@ -8,12 +8,11 @@ github_owner = "{{ git_owner }}"
 github_token = os.getenv('GITHUB_TOKEN')
 git_branch = "{{ git_branch }}"
 
-ecr_repo = "{{ ecr_repo }}"
-
 load_balancer_path = "/"
 load_balancer_priority = 1
 
-image_tag = os.getenv('IMAGE_TAG', "latest")
+ecr_repo = os.getenv("REPO_URI", "")
+image_tag = os.getenv("IMAGE_TAG", "latest")
 
 """
 The 'stages' parameter is a special parameter where stage-specific values can be
